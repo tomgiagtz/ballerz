@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
     private Rigidbody rb;
     private float movementX;
     private float movementY;
 
     public float speed = 10f;
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
     }
 
@@ -19,10 +21,11 @@ public class PlayerController : MonoBehaviour {
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 
-        rb.AddForce(movement * speed );
+        rb.AddForce(movement * speed);
     }
 
-    void OnMove(InputValue movementValue){
+    void OnMove(InputValue movementValue)
+    {
         Vector2 movementVector = movementValue.Get<Vector2>();
         movementX = movementVector.x;
         movementY = movementVector.y;
@@ -30,9 +33,11 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pickup")) 
+        if (other.gameObject.CompareTag("Pickup"))
         {
-            other.gameObject.SetActive(false);
+            Debug.Log("hh");
+            // other.gameObject.SetActive(false);
+            GameEvents.current.CoinPickup(other.gameObject.GetInstanceID());
         }
     }
 }
