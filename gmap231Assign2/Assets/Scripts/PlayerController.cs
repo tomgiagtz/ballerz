@@ -33,11 +33,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pickup"))
+        if (other.gameObject.layer == 3)
         {
-            Debug.Log("hh");
-            // other.gameObject.SetActive(false);
-            GameEvents.current.CoinPickup(other.gameObject.GetInstanceID());
+            // int id = other.gameObject.GetInstanceID();
+            GameEvents.current.CoinPickup();
+            other.gameObject.SetActive(false);
         }
     }
 }

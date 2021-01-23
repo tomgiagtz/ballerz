@@ -4,16 +4,16 @@ using System.Collections;
 public class CoinController : MonoBehaviour
 {
     public float bounceSpeed = 1f;
-    public float bounceDelta = 0.5f;
+    public float bounceDelta = 0.25f;
     private float originY;
-    private int id;
 
-    private void Start()
+    public int id;
+
+    private void Awake()
     {
         originY = transform.position.y;
-        id = gameObject.GetInstanceID();
     }
-    private void Awake()
+    private void OnEnable()
     {
         GameEvents.current.onCoinPickup += HandleCoinPickup;
     }
@@ -22,9 +22,10 @@ public class CoinController : MonoBehaviour
         GameEvents.current.onCoinPickup -= HandleCoinPickup;
     }
 
-    private void HandleCoinPickup(int id)
+    private void HandleCoinPickup(int _id)
     {
-        Debug.Log("coin pickup " + id);
+        Debug.Log(_id + " passed");
+
     }
     void Update()
     {

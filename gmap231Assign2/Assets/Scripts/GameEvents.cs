@@ -6,7 +6,7 @@ using System;
 public class GameEvents : MonoBehaviour
 {
     public static GameEvents current;
-    void Awake()
+    void OnEnable()
     {
         current = this;
     }
