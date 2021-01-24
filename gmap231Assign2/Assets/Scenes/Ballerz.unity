@@ -951,13 +951,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.36812454, y: 0, z: 0, w: 0.9297765}
-  m_LocalPosition: {x: 0, y: 5, z: -5}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 14, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 43.2, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,7 +970,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37dc48b7b5c5a9646b44dd62431697d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1811411932}
+  targets:
+  - {fileID: 9181179035688785720}
+  - {fileID: 1811411936}
+  offset: {x: 0, y: 14, z: -10}
+  smoothTime: 0.5
+  minZoom: 90
+  maxZoom: 30
+  zoomLimiter: 40
 --- !u!1 &991874240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,9 +1640,9 @@ Transform:
   m_Father: {fileID: 898963678}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1811411932 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7635221376015886382, guid: 33995c674dcf762488fcd6842e5e9932,
+--- !u!4 &1811411936 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7635221376015886354, guid: 33995c674dcf762488fcd6842e5e9932,
     type: 3}
   m_PrefabInstance: {fileID: 7635221374240463858}
   m_PrefabAsset: {fileID: 0}
@@ -2053,7 +2060,7 @@ PrefabInstance:
     - target: {fileID: 1758229093912021961, guid: 032197b945890a24295382b061228829,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1758229093912021961, guid: 032197b945890a24295382b061228829,
         type: 3}
@@ -2105,6 +2112,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterMarble
       objectReference: {fileID: 0}
+    - target: {fileID: 1758229093912022005, guid: 032197b945890a24295382b061228829,
+        type: 3}
+      propertyPath: m_TagString
+      value: WaterMarble
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 032197b945890a24295382b061228829, type: 3}
 --- !u!1001 &7635221374240463858
@@ -2122,7 +2134,7 @@ PrefabInstance:
     - target: {fileID: 7635221376015886354, guid: 33995c674dcf762488fcd6842e5e9932,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 7635221376015886354, guid: 33995c674dcf762488fcd6842e5e9932,
         type: 3}
@@ -2172,6 +2184,11 @@ PrefabInstance:
     - target: {fileID: 7635221376015886382, guid: 33995c674dcf762488fcd6842e5e9932,
         type: 3}
       propertyPath: m_Name
+      value: FireMarble
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635221376015886382, guid: 33995c674dcf762488fcd6842e5e9932,
+        type: 3}
+      propertyPath: m_TagString
       value: FireMarble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2250,3 +2267,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 631f4aa74245c4149af2ae722306819b, type: 3}
+--- !u!4 &9181179035688785720 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1758229093912021961, guid: 032197b945890a24295382b061228829,
+    type: 3}
+  m_PrefabInstance: {fileID: 7425421742700256497}
+  m_PrefabAsset: {fileID: 0}
