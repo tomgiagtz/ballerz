@@ -6,7 +6,6 @@ public class CoinController : MonoBehaviour
     public float bounceSpeed = 1f;
     public float bounceDelta = 0.25f;
     private float originY;
-    public int id;
 
     private void Start()
     {

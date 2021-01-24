@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
 
+    public LayerMask coinLayer;
+    public LayerMask groundLayer;
+
     // public PlayerInput playerInput;
 
     public float speed = 10f;
@@ -17,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10f;
     private const float JUMP_MULITPLIER = 20f;
     private bool willJump = false;
+    public bool isGrounded = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,8 +49,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnJump(InputValue jumpValue) {
-        Debug.Log("Jump");
-        if (!willJump) {
+        if (!willJump && isGrounded) {
             willJump = true;
         }
     }
@@ -54,11 +57,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 3)
+        if (other.gameObject.layer == GetLayerMaskValue(coinLayer))
         {
-            // int id = other.gameObject.GetInstanceID();
             GameEvents.current.CoinPickup(other.gameObject.GetInstanceID());
-            // other.gameObject.SetActive(false);
         }
+
+        if (other.gameObject.layer == GetLayerMaskValue(groundLayer)) {
+            isGrounded = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.gameObject.layer == GetLayerMaskValue(groundLayer)) {
+            isGrounded = false;
+        }
+    }
+    private int GetLayerMaskValue(LayerMask layerMask) {
+        return (int) Mathf.Log(layerMask, 2);
     }
 }

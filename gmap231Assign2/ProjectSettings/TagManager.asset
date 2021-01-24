@@ -11,11 +11,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - CoinLayer
+  - 
   - Water
   - UI
-  - 
-  - 
+  - Ground
+  - Coin
   - 
   - 
   - 
