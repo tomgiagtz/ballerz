@@ -13,9 +13,6 @@ public class CoinController : MonoBehaviour
         originY = transform.position.y;
         GameEvents.current.onCoinPickup += HandleCoinPickup;
     }
-    private void OnEnable()
-    {
-    }
     private void OnDisable()
     {
         GameEvents.current.onCoinPickup -= HandleCoinPickup;
