@@ -36,8 +36,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.layer == 3)
         {
             // int id = other.gameObject.GetInstanceID();
-            GameEvents.current.CoinPickup();
-            other.gameObject.SetActive(false);
+            GameEvents.current.CoinPickup(other.gameObject.GetInstanceID());
+            // other.gameObject.SetActive(false);
         }
     }
 }
