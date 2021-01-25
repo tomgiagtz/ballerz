@@ -25,4 +25,20 @@ public class GameEvents : MonoBehaviour
             onCoinPickup(id);
         }
     }
+
+
+    //very similarly, create events for buttontrigger enter and exit
+    public event Action<int> onButtonTriggerEnter;
+    public void ButtonTriggerEnter(int id) {
+        if (onButtonTriggerEnter != null) {
+            onButtonTriggerEnter(id);
+        }
+    }
+
+    public event Action<int> onButtonTriggerExit;
+    public void ButtonTriggerExit(int id) {
+        if (onButtonTriggerExit != null) {
+            onButtonTriggerExit(id);
+        }
+    }
 }

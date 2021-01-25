@@ -26,10 +26,10 @@ public class CameraController : MonoBehaviour
 
     // var reference for Smooth Dampening
     private Vector3 cameraVelocity;
-    private Camera camera;
+    private Camera cam;
 
     private void Start() {
-        camera = GetComponent<Camera>();
+        cam = GetComponent<Camera>();
     }
 
     //use late update so it performs movements after players move
@@ -60,7 +60,7 @@ public class CameraController : MonoBehaviour
         float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter);
 
         //set FOV, smoothed using lerp between current and new zoom
-        camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, newZoom, Time.deltaTime);
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
     }
 
 

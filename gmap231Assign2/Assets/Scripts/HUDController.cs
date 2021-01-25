@@ -9,7 +9,7 @@ public class HUDController : MonoBehaviour
     private float score = 0f;
     public TextMeshProUGUI scoreCounter;
     
-    void Start()
+    void OnEnable()
     {
         GameEvents.current.onCoinPickup += HandleCoinPickup;
         // scoreCounter = GetComponent<TextMeshProUGUI>();
