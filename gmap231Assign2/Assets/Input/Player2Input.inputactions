@@ -218,7 +218,7 @@
                 {
                     "name": "",
                     "id": "7debe940-83cd-406f-bfd5-08e2a6091719",
-                    "path": "<Keyboard>/rightCtrl",
+                    "path": "<Keyboard>/rightShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad",

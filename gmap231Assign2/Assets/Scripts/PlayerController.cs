@@ -13,12 +13,18 @@ public class PlayerController : MonoBehaviour
     //layers set in inspector
     public LayerMask coinLayer;
     public LayerMask groundLayer;
+    public LayerMask deathLiquidLayer;
+    public LayerMask swimLiquidLayer;
 
 
     //speed var
     public float speed = 10f;
 
     public float jumpForce = 10f;
+
+
+    public float killHeight = -10f;
+    private Vector3 respawnPoint; 
     // gives jumps some extra oompf, keeps values lower
     private const float JUMP_MULITPLIER = 20f;
 
@@ -30,6 +36,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        respawnPoint = transform.position;
+    }
+
+    void Respawn() {
+        transform.position = respawnPoint;
+        rb.velocity = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -44,6 +56,10 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce * JUMP_MULITPLIER);
             //revert will jump after jumping
             willJump = false;
+        } 
+
+        if (transform.position.y < killHeight) {
+            Respawn();
         }
         
     }
@@ -60,6 +76,7 @@ public class PlayerController : MonoBehaviour
         if (!willJump && isGrounded) {
             willJump = true;
         }
+        // Respawn();
     }
     
     private void OnTriggerEnter(Collider other)
@@ -73,6 +90,17 @@ public class PlayerController : MonoBehaviour
 
         // handle ground detection
         if (other.gameObject.layer == GetLayerMaskValue(groundLayer)) {
+            isGrounded = true;
+        }
+
+        //handle death layer, respawn
+        if (other.gameObject.layer == GetLayerMaskValue(deathLiquidLayer)) {
+            Respawn();
+        }
+
+        if (other.gameObject.layer == GetLayerMaskValue(swimLiquidLayer)) {
+            Debug.Log("no swimming yet");
+            //give player jump for now in case they get stuck
             isGrounded = true;
         }
     }
