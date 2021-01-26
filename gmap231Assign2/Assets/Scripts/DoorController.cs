@@ -14,19 +14,21 @@ public class DoorController : MonoBehaviour
     {
         //save initial position
         startPosition = transform.position;
-
+        //sub to events
         GameEvents.current.onButtonTriggerEnter += handleDoorOpen;
         GameEvents.current.onButtonTriggerExit += handleDoorClose;
     }
 
     void handleDoorOpen(int id) {
         if (id == doorId) {
+            //tween on y to open to openHeight
             LeanTween.moveLocalY(gameObject, startPosition.y + openHeight, openTime).setEaseOutQuad();
         }
     }
 
     void handleDoorClose(int id) {
         if (id == doorId) {
+            //tween on y to back to starting height
             LeanTween.moveLocalY(gameObject, startPosition.y, openTime).setEaseInQuad();
         }
     }

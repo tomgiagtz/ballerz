@@ -11,21 +11,25 @@ public class HUDController : MonoBehaviour
     
     void OnEnable()
     {
+        //sub to oncoin pickup
         GameEvents.current.onCoinPickup += HandleCoinPickup;
-        // scoreCounter = GetComponent<TextMeshProUGUI>();
+        
     }
     
     private void OnDisable() {
+        //unsub from oncoin pickup
         GameEvents.current.onCoinPickup -= HandleCoinPickup;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //update score value every frame, could be in handleCoinPickup tbh
         scoreCounter.SetText(score.ToString());
     }
 
     private void HandleCoinPickup(int id) {
+        //increment score on coin pickup
         score++;
     }
 }

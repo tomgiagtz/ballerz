@@ -17,12 +17,11 @@ public class PlayerController : MonoBehaviour
     public LayerMask swimLiquidLayer;
 
 
-    //speed var
     public float speed = 10f;
 
     public float jumpForce = 10f;
 
-
+    //sets height of kill plane
     public float killHeight = -10f;
     private Vector3 respawnPoint; 
     // gives jumps some extra oompf, keeps values lower

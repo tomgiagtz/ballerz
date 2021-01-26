@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// big thanks to game dev guide on youtube, triggers are great
+// followed along here: https://www.youtube.com/watch?v=gx0Lt4tCDE0
 public class GameEvents : MonoBehaviour
 {
     //singleton GameEvents object placed in scene
@@ -26,7 +29,6 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-
     //very similarly, create events for buttontrigger enter and exit
     public event Action<int> onButtonTriggerEnter;
     public void ButtonTriggerEnter(int id) {
@@ -35,6 +37,7 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    // hope you get it by now :)
     public event Action<int> onButtonTriggerExit;
     public void ButtonTriggerExit(int id) {
         if (onButtonTriggerExit != null) {
